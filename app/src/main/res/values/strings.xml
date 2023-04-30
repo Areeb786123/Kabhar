@@ -5,4 +5,6 @@
     <string name="home">home</string>
     <string name="search">search</string>
     <string name="saved">saved</string>
+    <string name="image">image</string>
+    <string name="khabar">Khabar</string>
 </resources>

@@ -1,0 +1,22 @@
+{
+  "categories": [
+    {
+      "title": "trending"
+    },
+    {
+      "title": "health"
+    },
+    {
+      "title": "sports"
+    },
+    {
+      "title": "entertainment"
+    },
+    {
+      "title": "business"
+    },
+    {
+      "title": "technology"
+    }
+  ]
+}

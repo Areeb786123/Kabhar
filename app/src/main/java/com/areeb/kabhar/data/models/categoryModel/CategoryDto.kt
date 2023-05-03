@@ -6,4 +6,4 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CategoryDto(
     val categories: List<Category>,
-): Parcelable
+) : Parcelable

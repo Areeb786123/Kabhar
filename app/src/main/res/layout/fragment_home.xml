@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/size_10"
-        android:layout_marginTop="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_12"
         android:fontFamily="@font/bellota_light"
         android:text="@string/khabar"
         android:textColor="@color/white"
@@ -36,9 +36,33 @@
         android:id="@+id/newsCategoryRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_14"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/app_icon" />
+        app:layout_constraintTop_toBottomOf="@id/app_icon"
+        tools:listitem="@layout/news_category_items" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_1"
+        android:layout_marginHorizontal="@dimen/size_20"
+        android:layout_marginTop="@dimen/size_20"
+        app:dividerColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/newsCategoryRecyclerView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homeViewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/size_0"
+        android:layout_marginTop="@dimen/size_16"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider1"
+        tools:listitem="@layout/item_view_pager" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

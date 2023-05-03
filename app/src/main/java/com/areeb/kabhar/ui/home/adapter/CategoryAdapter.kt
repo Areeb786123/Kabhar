@@ -1,4 +1,4 @@
-package com.areeb.kabhar.ui.home
+package com.areeb.kabhar.ui.home.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

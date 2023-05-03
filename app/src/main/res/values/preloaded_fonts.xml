@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/allerta_stencil</item>
         <item>@font/bellota_light</item>
+        <item>@font/dancing_script</item>
     </array>
 </resources>

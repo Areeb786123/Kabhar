@@ -7,4 +7,8 @@
     <string name="saved">saved</string>
     <string name="image">image</string>
     <string name="khabar">Khabar</string>
+    <string name="static_text_test">Demand for Indian generic drugs skyrockets in...</string>
+    <string name="src_image">src_image</string>
+    <string name="published_by">Published By</string>
+    <string name="news_example">The demand for Indian generic drugs has shot up in China amid the massive COVID surge in the country, with Chinese experts cautioning that fake versions of these drugs are flooding the market. China\'s National Health Security Administration said on Sunday that Pfizer\'s Paxlovid oral medication.</string>
 </resources>

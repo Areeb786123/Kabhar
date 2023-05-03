@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainCardBackground"
+    android:layout_marginStart="@dimen/size_10"
+    android:layout_marginTop="@dimen/size_10"
+    android:layout_marginEnd="@dimen/size_10"
+    app:cardBackgroundColor="#F4DB90"
+    app:cardCornerRadius="@dimen/size_12"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size_14">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="@dimen/size_14"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_28"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/static_text_test" />
+
+        <TextView
+            android:id="@+id/publishAtTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_14"
+            android:textColor="#3E3C3C"
+            android:textSize="@dimen/font_10"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="Published at 12-08-2022" />
+
+        <ImageView
+            android:id="@+id/authorDp"
+            android:layout_width="@dimen/size_34"
+            android:layout_height="@dimen/size_34"
+            android:layout_marginStart="@dimen/size_14"
+            android:layout_marginTop="@dimen/size_14"
+            android:contentDescription="@string/src_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/undraw_pic_profile_re_7g2h"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/publishAtTextView" />
+
+        <TextView
+            android:id="@+id/publishByTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_14"
+            android:layout_marginTop="@dimen/size_14"
+            android:fontFamily="@font/dancing_script"
+            android:text="@string/published_by"
+            android:textColor="#424040"
+            android:textSize="@dimen/font_10"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/authorDp"
+            app:layout_constraintTop_toBottomOf="@+id/publishAtTextView" />
+
+        <TextView
+            android:id="@+id/authorNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_14"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/authorDp"
+            app:layout_constraintTop_toBottomOf="@+id/publishByTextView"
+            tools:text="Hindustan Times" />
+
+        <TextView
+            android:id="@+id/newsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_14"
+            android:layout_marginTop="@dimen/size_26"
+            android:padding="@dimen/size_16"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/authorDp"
+            app:layout_constraintTop_toBottomOf="@+id/authorNameTextView"
+            tools:text="@string/news_example" />
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/size_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newsTextView" />
+
+
+        <ImageView
+            android:id="@+id/newsImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_200"
+            android:layout_marginHorizontal="@dimen/size_12"
+            android:background="@drawable/card_back"
+            android:contentDescription="@string/src_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newsTextView"
+            tools:src="@drawable/test_img"
+            tools:visibility="gone" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

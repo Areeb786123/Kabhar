@@ -13,7 +13,7 @@ class TopHeadlineRepo @Inject constructor(private val remoteOperations: RemoteOp
 
     fun getNewsHeadlines(country: String): Flow<Resources<TopHeadlineResponse>> {
         return flow {
-            val response = remoteOperations.getTopNews(country)
+            val response = remoteOperations.getTopNews()
             emit(response)
         }.flowOn(Dispatchers.IO)
     }

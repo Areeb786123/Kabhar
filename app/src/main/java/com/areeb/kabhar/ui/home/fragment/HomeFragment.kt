@@ -1,5 +1,7 @@
 package com.areeb.kabhar.ui.home.fragment
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,9 +11,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.areeb.kabhar.data.models.categoryModel.CategoryDto
 import com.areeb.kabhar.databinding.FragmentHomeBinding
+import com.areeb.kabhar.ui.common.ItemClicklistener
+import com.areeb.kabhar.ui.detailScreen.DetailScreen
+import com.areeb.kabhar.ui.detailScreen.activity.DetailActivity
 import com.areeb.kabhar.ui.home.adapter.CategoryAdapter
 import com.areeb.kabhar.ui.home.adapter.HomePagingAdapter
 import com.areeb.kabhar.ui.home.viewModels.HomeViewModels
+import com.areeb.kabhar.utils.Constants
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,8 +47,18 @@ class HomeFragment : Fragment() {
         initView()
     }
 
+    @SuppressLint("CommitTransaction", "ResourceType")
     private fun initView() {
-        homeAdapter = HomePagingAdapter()
+        val bundle = Bundle()
+        DetailScreen().arguments = bundle
+        homeAdapter = HomePagingAdapter(
+            ItemClicklistener {
+                bundle.putString(Constants.String_CONSTANTS.WEB_VIEW_URL, it.url)
+                val intent = Intent(requireActivity(), DetailActivity::class.java)
+                intent.putExtra(Constants.String_CONSTANTS.WEB_VIEW_URL, it.url)
+                startActivity(intent)
+            },
+        )
         binding.homeViewPager.adapter = homeAdapter
     }
 

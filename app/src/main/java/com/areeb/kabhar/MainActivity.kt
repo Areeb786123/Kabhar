@@ -1,13 +1,11 @@
 package com.areeb.kabhar
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.areeb.kabhar.databinding.ActivityMainBinding
-import com.areeb.kabhar.ui.home.fragment.HomeFragment
-import com.areeb.kabhar.ui.saved.SavedFragment
-import com.areeb.kabhar.ui.search.fragment.SearchFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,23 +26,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        replaceFragment(HomeFragment())
         settingBottomNavigation()
     }
 
     private fun settingBottomNavigation() {
-        binding.bottomNavigation.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.homeFragment -> replaceFragment(HomeFragment())
-                R.id.searchFragment -> replaceFragment(SearchFragment())
-                R.id.savedFragment -> replaceFragment(SavedFragment())
-            }
-            true
-        }
-    }
-
-    @SuppressLint("CommitTransaction")
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(binding.frameLayout.id, fragment).commit()
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(binding.fragmentContainer.id) as NavHostFragment?
+        val navController = navHostFragment!!.navController
+        binding.bottomNavigation.setupWithNavController(navController)
     }
 }

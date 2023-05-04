@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.areeb.kabhar.R
 import com.areeb.kabhar.data.models.Article
 import com.areeb.kabhar.databinding.ItemViewPagerBinding
+import com.areeb.kabhar.ui.common.ItemClicklistener
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -17,10 +18,20 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
 class HomePagingViewHolder(private val bindingAdapter: ItemViewPagerBinding) :
-    RecyclerView.ViewHolder(bindingAdapter.root) {
+    RecyclerView.ViewHolder(bindingAdapter.root), View.OnClickListener {
+
+    init {
+        bindingAdapter.mainCardBackground.setOnClickListener(this)
+        bindingAdapter.newsImageView.setOnClickListener(this)
+    }
+
+    lateinit var clickListener: ItemClicklistener<Article>
+    lateinit var article: Article
 
     @SuppressLint("SetTextI18n")
-    fun bind(article: Article) {
+    fun bind(article: Article, clickListener: ItemClicklistener<Article>) {
+        this.clickListener = clickListener
+        this.article = article
         bindingAdapter.title.text = article.title
         bindingAdapter.newsTextView.text = article.content
         bindingAdapter.publishAtTextView.text = "published at ${article.publishedAt}"
@@ -74,5 +85,9 @@ class HomePagingViewHolder(private val bindingAdapter: ItemViewPagerBinding) :
                 ItemViewPagerBinding.inflate(LayoutInflater.from(view.context), view, false),
             )
         }
+    }
+
+    override fun onClick(view: View?) {
+        clickListener.onClick(article)
     }
 }

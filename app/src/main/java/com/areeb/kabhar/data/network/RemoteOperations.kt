@@ -7,7 +7,7 @@ import javax.inject.Inject
 class RemoteOperations @Inject constructor(private val newApi: NewsApi) :
     IRemoteOperations,
     SafeApiCall {
-    override suspend fun getTopNews(country: String): Resources<TopHeadlineResponse> {
-        return safeApiCall { newApi.getTopNews(country) }
+    override suspend fun getTopNews(): Resources<TopHeadlineResponse> {
+        return safeApiCall { newApi.getTopNews() }
     }
 }

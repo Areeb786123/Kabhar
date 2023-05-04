@@ -18,7 +18,7 @@ class PagingSourceFactory(private val remoteOperations: RemoteOperations) :
             val position = params.key ?: 1
             val prevKey = if (position == 1) null else -1
 
-            val resourceData = remoteOperations.getTopNews("in")
+            val resourceData = remoteOperations.getTopNews()
 
             if (resourceData is Resources.SUCCESS) {
                 Log.e("dataXX", resourceData.data.articles.toString())

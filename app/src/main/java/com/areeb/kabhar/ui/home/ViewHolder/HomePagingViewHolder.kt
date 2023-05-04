@@ -26,7 +26,7 @@ class HomePagingViewHolder(private val bindingAdapter: ItemViewPagerBinding) :
         bindingAdapter.publishAtTextView.text = "published at ${article.publishedAt}"
         bindingAdapter.authorNameTextView.text = article.author
         settingUpImage(article)
-        changingItemBackgroundColor(article)
+//        changingItemBackgroundColor(article)
     }
 
     @SuppressLint("ResourceAsColor")

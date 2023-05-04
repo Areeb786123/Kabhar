@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gold">#9D7233</color>
+    <color name="creyon">#2196F3</color>
     <color name="card1">#80AACC</color>
     <color name="card2">#BEA9E2</color>
+    <color name="baltic_sea_dark">#31313B</color>
 </resources>

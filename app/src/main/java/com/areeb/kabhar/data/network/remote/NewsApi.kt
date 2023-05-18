@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface NewsApi {
     @GET(ApiConstants.EVERYTHING)
     suspend fun getTopNews(
-        @Query("q") query: String = "sports",
+        @Query("q") query: String,
         @Query("apiKey") apiKey: String = ApiConstants.API_KEY,
     ): TopHeadlineResponse
 }

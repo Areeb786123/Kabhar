@@ -6,13 +6,12 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/size_14"
     android:layout_marginTop="@dimen/size_2"
-    android:background="@drawable/chip_background"
-    android:paddingHorizontal="@dimen/size_14"
-    android:paddingVertical="@dimen/size_6"
+    android:paddingHorizontal="@dimen/size_18"
+    android:paddingVertical="@dimen/size_8"
     android:textColor="@color/white"
-    android:textSize="@dimen/font_16"
-    android:textStyle="bold"
+    android:textSize="@dimen/font_14"
+    android:textStyle="normal"
     tools:text="Trending"
-    tools:textColor="@color/black">
+   >
 
 </TextView>

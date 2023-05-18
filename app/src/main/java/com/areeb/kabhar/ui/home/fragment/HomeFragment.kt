@@ -7,9 +7,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.areeb.kabhar.data.models.categoryModel.CategoryDto
+import com.areeb.kabhar.data.network.Resources
 import com.areeb.kabhar.databinding.FragmentHomeBinding
 import com.areeb.kabhar.ui.common.ItemClicklistener
 import com.areeb.kabhar.ui.detailScreen.DetailScreen
@@ -29,6 +31,7 @@ class HomeFragment : Fragment() {
     private var categoryAdapter: CategoryAdapter? = null
     private var homeAdapter: HomePagingAdapter? = null
     private val viewModels: HomeViewModels by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -63,9 +66,32 @@ class HomeFragment : Fragment() {
     }
 
     private fun observer() {
+        viewModels.resources.observe(viewLifecycleOwner) {
+//            settingUpResources(it)
+            Log.e("hh", it.toString())
+        }
         viewModels.topHeadlineResponse.observe(viewLifecycleOwner) {
             Log.e("topHeadlinesInFragment", it.toString())
             homeAdapter?.submitData(viewLifecycleOwner.lifecycle, it)
+        }
+    }
+
+    private fun settingUpResources(resource: Resources<Any>?) {
+        when (resource) {
+            is Resources.LOADING -> {
+                binding.homeViewPager.visibility = View.GONE
+                binding.shimmerEffect.visibility = View.VISIBLE
+            }
+            is Resources.SUCCESS,
+            -> {
+                binding.homeViewPager.visibility = View.VISIBLE
+                binding.shimmerEffect.visibility = View.GONE
+                viewModels.clearResources()
+            }
+
+            else -> {
+                Log.e("tag", "some error occur")
+            }
         }
     }
 
@@ -73,9 +99,23 @@ class HomeFragment : Fragment() {
         val jsonString = context?.assets?.open("category.json")?.bufferedReader().use {
             it?.readText()
         }
+
         val collectionWrapper = Gson().fromJson(jsonString, CategoryDto::class.java)
         val category = collectionWrapper.categories
-        categoryAdapter = CategoryAdapter(category)
+        categoryAdapter = CategoryAdapter(
+            category,
+            viewModels.getChipValue(),
+            ItemClicklistener { pair ->
+                viewModels.setChipSelectedValue(pair.second)
+                homeAdapter?.notifyDataSetChanged()
+                viewModels.getTopHeadlines(pair.first.title.toString().lowercase())
+                Toast.makeText(context, "${pair.first.title}", Toast.LENGTH_SHORT).show()
+                Log.e("hh", pair.second.toString())
+                Log.e("hh", viewModels.getChipValue().toString())
+            },
+
+        )
+        categoryAdapter!!.notifyDataSetChanged()
         binding.newsCategoryRecyclerView.adapter = categoryAdapter
     }
 }

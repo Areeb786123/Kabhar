@@ -11,9 +11,9 @@ import javax.inject.Inject
 
 class TopHeadlineRepo @Inject constructor(private val remoteOperations: RemoteOperations) {
 
-    fun getNewsHeadlines(country: String): Flow<Resources<TopHeadlineResponse>> {
+    fun getNewsHeadlines(query: String): Flow<Resources<TopHeadlineResponse>> {
         return flow {
-            val response = remoteOperations.getTopNews()
+            val response = remoteOperations.getTopNews(query)
             emit(response)
         }.flowOn(Dispatchers.IO)
     }

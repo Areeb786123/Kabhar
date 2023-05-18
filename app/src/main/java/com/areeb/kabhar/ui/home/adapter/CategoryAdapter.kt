@@ -1,6 +1,5 @@
 package com.areeb.kabhar.ui.home.adapter
 
-import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.areeb.kabhar.data.models.categoryModel.Category
@@ -26,19 +25,12 @@ class CategoryAdapter(
             category = categoryList[position],
             selectedItemListener,
             position,
+            selectedValue
         )
-        toggleSelected(position, holder)
+//        toogle(position, holder)
     }
 
-    private fun toggleSelected(position: Int, holder: CategoryViewHolder) {
-        if (position == selectedValue) {
-            Log.e("hh", "ii am po")
-            Log.e("hh", "ii am po")
-            holder.isSelected(true)
-        } else {
-            Log.e("hh", "nooo")
-            holder.isSelected(false)
-        }
-        Log.e("tt", position.toString() + "->" + selectedValue.toString())
+    private fun toogle(position: Int, holder: CategoryViewHolder) {
+        if (position == selectedValue) holder.isSelected(true) else holder.isSelected(false)
     }
 }

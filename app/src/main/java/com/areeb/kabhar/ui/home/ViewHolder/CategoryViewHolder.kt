@@ -22,16 +22,20 @@ class CategoryViewHolder(
     var title: Category? = null
     var selectedItem: ItemClicklistener<Pair<Category, Int>>? = null
     var selectedPosition: Int = 0
+    var defaultPosition: Int = 0
 
     fun bind(
         category: Category,
         selectedItem: ItemClicklistener<Pair<Category, Int>>,
         position: Int,
+        defaultPosition: Int,
     ) {
         this.title = category
         this.selectedItem = selectedItem
         this.selectedPosition = position
+        this.defaultPosition = defaultPosition
         bindingAdapter.title.text = category.title?.uppercase()
+        isSelected(position == defaultPosition)
     }
 
     companion object {

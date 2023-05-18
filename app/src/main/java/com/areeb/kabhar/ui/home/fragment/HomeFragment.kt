@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.areeb.kabhar.data.models.categoryModel.CategoryDto
@@ -95,6 +94,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun extractCategoryJsonData() {
         val jsonString = context?.assets?.open("category.json")?.bufferedReader().use {
             it?.readText()
@@ -107,15 +107,13 @@ class HomeFragment : Fragment() {
             viewModels.getChipValue(),
             ItemClicklistener { pair ->
                 viewModels.setChipSelectedValue(pair.second)
-                homeAdapter?.notifyDataSetChanged()
+                categoryAdapter?.notifyDataSetChanged()
+                homeAdapter?.notifyItemChanged(pair.second)
                 viewModels.getTopHeadlines(pair.first.title.toString().lowercase())
-                Toast.makeText(context, "${pair.first.title}", Toast.LENGTH_SHORT).show()
-                Log.e("hh", pair.second.toString())
-                Log.e("hh", viewModels.getChipValue().toString())
             },
 
         )
-        categoryAdapter!!.notifyDataSetChanged()
+
         binding.newsCategoryRecyclerView.adapter = categoryAdapter
     }
 }

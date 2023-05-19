@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainCardBackground"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/size_10"
+    android:layout_marginTop="@dimen/size_10"
+    android:layout_marginEnd="@dimen/size_10"
+    app:cardBackgroundColor="@color/baltic_sea_dark"
+    app:cardCornerRadius="@dimen/size_12"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size_14">
+
+        <View
+            android:id="@+id/stitle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_40"
+            android:layout_marginHorizontal="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/skeleton_backgroud"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="@dimen/size_14"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_28"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/static_text_test" />
+
+        <View
+            android:id="@+id/spublishAtTextView"
+            android:layout_width="@dimen/size_60"
+            android:layout_height="@dimen/size_20"
+            android:layout_marginStart="@dimen/size_14"
+            android:layout_marginTop="@dimen/size_40"
+            android:background="@drawable/skeleton_backgroud"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_10"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stitle"
+            tools:text="Published at 12-08-2022" />
+
+        <ImageView
+            android:id="@+id/authorDp"
+            android:layout_width="@dimen/size_34"
+            android:layout_height="@dimen/size_34"
+            android:layout_marginStart="@dimen/size_14"
+            android:layout_marginTop="@dimen/size_14"
+            android:contentDescription="@string/src_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_image_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spublishAtTextView" />
+
+        <View
+            android:id="@+id/spublishByTextView"
+            android:layout_width="@dimen/size_40"
+            android:layout_height="@dimen/size_20"
+            android:layout_marginStart="@dimen/size_14"
+            android:layout_marginTop="@dimen/size_14"
+            android:background="@drawable/skeleton_backgroud"
+            android:fontFamily="@font/dancing_script"
+            android:text="@string/published_by"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_10"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/authorDp"
+            app:layout_constraintTop_toBottomOf="@+id/spublishAtTextView" />
+
+        <View
+            android:id="@+id/sauthorNameTextView"
+            android:layout_width="@dimen/size_80"
+            android:layout_height="@dimen/size_10"
+            android:layout_marginStart="@dimen/size_14"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginEnd="@dimen/size_20"
+            android:background="@drawable/skeleton_backgroud"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_14"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/authorDp"
+            app:layout_constraintTop_toBottomOf="@+id/spublishByTextView"
+            tools:text="Hindustan Times" />
+
+        <View
+            android:id="@+id/newsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_24"
+            android:layout_marginStart="@dimen/size_14"
+            android:layout_marginTop="@dimen/size_26"
+            android:layout_marginEnd="@dimen/size_20"
+            android:background="@drawable/skeleton_backgroud"
+            android:padding="@dimen/size_16"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_14"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/authorDp"
+            app:layout_constraintTop_toBottomOf="@+id/sauthorNameTextView" />
+
+
+        <ImageView
+            android:id="@+id/snewsImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_200"
+            android:layout_marginHorizontal="@dimen/size_12"
+            android:background="@drawable/card_back"
+            android:contentDescription="@string/src_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newsTextView"
+            tools:src="@drawable/baseline_image_24" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

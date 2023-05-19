@@ -69,6 +69,11 @@ class HomeFragment : Fragment() {
 //            settingUpResources(it)
             Log.e("hh", it.toString())
         }
+
+        viewModels.chipSelectedValue.observe(viewLifecycleOwner){
+            extractCategoryJsonData()
+        }
+
         viewModels.topHeadlineResponse.observe(viewLifecycleOwner) {
             Log.e("topHeadlinesInFragment", it.toString())
             homeAdapter?.submitData(viewLifecycleOwner.lifecycle, it)
@@ -107,11 +112,8 @@ class HomeFragment : Fragment() {
             viewModels.getChipValue(),
             ItemClicklistener { pair ->
                 viewModels.setChipSelectedValue(pair.second)
-                categoryAdapter?.notifyDataSetChanged()
-                homeAdapter?.notifyItemChanged(pair.second)
-                viewModels.getTopHeadlines(pair.first.title.toString().lowercase())
+                viewModels.getTopHeadlines(pair.first.title.toString())
             },
-
         )
 
         binding.newsCategoryRecyclerView.adapter = categoryAdapter

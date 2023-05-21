@@ -70,7 +70,7 @@ class HomeFragment : Fragment() {
             Log.e("hh", it.toString())
         }
 
-        viewModels.chipSelectedValue.observe(viewLifecycleOwner){
+        viewModels.chipSelectedValue.observe(viewLifecycleOwner) {
             extractCategoryJsonData()
         }
 

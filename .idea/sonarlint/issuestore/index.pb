@@ -27,12 +27,8 @@ Mapp/src/main/java/com/areeb/kabhar/ui/detailScreen/activity/DetailActivity.kt,
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 b
 2app/src/main/java/com/areeb/kabhar/MainActivity.kt,e/e/eef45cfda57b4e6b6e4ef6e2980e1d6aac63750c
-w
-Gapp/src/main/java/com/areeb/kabhar/ui/home/adapter/HomePagingAdapter.kt,3/7/3783088545636b6b1307b3a2bf59103140b413da
 x
 Happ/src/main/java/com/areeb/kabhar/data/models/categoryModel/Category.kt,7/0/7080b9cb10a53869123aaf5bf1cb2725dc3eecbe
-}
-Mapp/src/main/java/com/areeb/kabhar/ui/home/ViewHolder/HomePagingViewHolder.kt,9/d/9d4721767307f9ce171145bc2d738ddfc5178182
 q
 Aapp/src/main/java/com/areeb/kabhar/ui/common/ItemClicklistener.kt,e/c/eca1b9c9bd09b63b0b50b3c90afc73c5cbfd3faf
 y

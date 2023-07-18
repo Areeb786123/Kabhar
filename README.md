@@ -1,3 +1,4 @@
 # Kabhar
 
-![Khabar](https://github.com/Areeb786123/Kabhar/assets/56149022/f9e7b310-9b29-4d17-9d67-1de2b85d4643)
+
+![1684854914184](https://github.com/Areeb786123/Kabhar/assets/56149022/72aac1b9-35e9-4cda-97a5-ad19fb8bff90)
